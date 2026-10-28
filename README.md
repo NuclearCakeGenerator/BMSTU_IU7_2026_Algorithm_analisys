@@ -1,0 +1,1 @@
+# BMSTU_IU7_2026_Algorithm_analisys
