@@ -1,3 +1,46 @@
+## --- LATEX BUILD ARTIFACTS ---
+# Ignore all auxiliary files generated during compilation
+*.aux
+*.fdb_latexmk
+*.fls
+*.glg
+*.glo
+*.gls
+*.idx
+*.ilg
+*.ind
+*.ist
+*.log
+*.out
+*.toc
+*.nav
+*.snm
+*.vrb
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+
+## --- SYNCTEX (Editor/PDF sync) ---
+*.synctex
+*.synctex(busy)
+*.synctex.gz
+*.synctex.gz(busy)
+
+## --- DOCUMENT OUTPUT DIRECTORY ---
+# We configure latexmk to dump all mess (including the final PDF) into here
+build/
+
+## --- PROGRAMMING & IDE ---
+# Common compiled graphics binary extensions (add more based on your language)
+*.exe
+*.out
+*.o
+*.build/
+bin/
+obj/
+
 *.pdf
 
 !tasks/*
+!bmstu/*
