@@ -1,0 +1,31 @@
+{
+  "name": "C++ & LaTeX Cutting-Edge Environment",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  // Автоматическая настройка VS Code внутри контейнера
+  "customizations": {
+    "vscode": {
+      // Устанавливаем лучшие плагины для C++ и LaTeX прямо в контейнер
+      "extensions": [
+        "ms-vscode.cpptools",
+        "ms-vscode.cpptools-extension-pack",
+        "twxs.cmake",
+        "James-Yu.latex-workshop",
+        "xaver.clang-format",
+        "ms-vscode.cpptools-themes"
+      ]
+    }
+  },
+
+  // Проброс настроек безопасности (необходимо для корректной работы отладчика gdb/lldb)
+  "runArgs": [
+    "--cap-add=SYS_PTRACE",
+    "--security-opt",
+    "seccomp=unconfined"
+  ],
+
+  // Опционально: команда, которая выполнится ОДИН РАЗ после создания контейнера
+  // Здесь можно обновить менеджеры пакетов или проверить версии инструментов
+  "postCreateCommand": "gcc --version && g++ --version && xelatex --version && latexmk --version"
+}
