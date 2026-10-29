@@ -41,6 +41,7 @@ bin/
 obj/
 
 *.pdf
+*.svg
 
 !tasks/*
 !bmstu/*
