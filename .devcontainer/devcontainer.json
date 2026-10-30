@@ -13,7 +13,8 @@
         "twxs.cmake",
         "James-Yu.latex-workshop",
         "xaver.clang-format",
-        "ms-vscode.cpptools-themes"
+        "ms-vscode.cpptools-themes",
+        "esbenp.prettier-vscode"
       ]
     }
   },
