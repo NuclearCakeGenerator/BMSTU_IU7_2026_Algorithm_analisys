@@ -1,5 +1,8 @@
 \documentclass{bmstu}
 
+\usepackage{svg}
+\usepackage{adjustbox}
+
 \usetikzlibrary{positioning,shapes.geometric}
 
 \addbibresource{references.bib}
@@ -80,7 +83,17 @@
 $A_i$ массива $A$ и сравнивает его с $x$. Если текущий элемент массива равен $x$,
 алгоритм возвращяет его индекс $i$ и завершается. Если ни один элемент массива
 не оказался равен $x$ --- алгоритм возвращает $-1$ и завершается. Схема
-алгоритма приведена на рисунке...
+алгоритма приведена на рисунке~\ref{fig:linear-search}.
+
+\begin{figure}[H]
+	\centering
+	\begin{adjustbox}{max width=\textwidth, max height=0.8\textheight}
+		\includesvg[inkscapelatex=false]
+		{../../diagrams/lab_1/linear_search}
+	\end{adjustbox}
+	\caption{Схема линейного поиска}
+	\label{fig:linear-search}
+\end{figure}
 
 \subsubsection{Нерекурсивный алгоритм бинарного поиска}
 Нерекурсивный алгоритм итеративно ищет индекс элемента в отсортированном
@@ -94,7 +107,28 @@ $A_mid < x$, то $r = A_mid$ и $l = A_mid$ в противном случае.
 вырождения диапазона алгоритм возвращает $-1$. Второй вариант алгоритма
 проверяет элемент на равенство только в момент вырождения диапазона до одного
 элемента. В случае равенства возвращается индекс элемента $i$ и $-1$ в противном
-случае. Схемы алгоритмов приведены на рисунках...
+случае. Схемы алгоритмов приведены на рисунке~\ref{fig:binary-search-iterative-v1}
+и рисунке~\ref{fig:binary-search-iterative-v2}.
+
+\begin{figure}[H]
+	\centering
+	\begin{adjustbox}{max width=\textwidth, max height=0.8\textheight}
+		\includesvg[inkscapelatex=false]
+		{../../diagrams/lab_1/non-recurcive_v1}
+	\end{adjustbox}
+	\caption{Схема нерекурсивного бинарного поиска, вариант 1}
+	\label{fig:binary-search-iterative-v1}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{adjustbox}{max width=\textwidth, max height=0.8\textheight}
+		\includesvg[inkscapelatex=false]
+		{../../diagrams/lab_1/non-recurcive_v2}
+	\end{adjustbox}
+	\caption{Схема нерекурсивного бинарного поиска, вариант 2}
+	\label{fig:binary-search-iterative-v2}
+\end{figure}
 
 \subsubsection{Рекурсивный алгоритм бинарного поиска}
 Рекурсивный алгоритм бинарного поиска реализует тот-же принцип деления диапазона
@@ -102,9 +136,17 @@ $A_mid < x$, то $r = A_mid$ и $l = A_mid$ в противном случае.
 производится засчет рекурсивного вызова функции на суженном диапазоне. Проверка
 на равенство элемента $A_i$ производится, когда диапазон сомкнулся до одного
 элемента. В зависимотсти от истинности равенства $A_i = x$ программа возвращает
-$i$ или $-1$. Схема алгоритма представлена на рисунке...
+$i$ или $-1$. Схема алгоритма представлена на рисунке~\ref{fig:binary-search-recursive}.
 
-% TODO после каждого описания алгоритмов вставить соответствующую svg схему со ссылкой, как только они будут созданы.
+\begin{figure}[H]
+	\centering
+	\begin{adjustbox}{max width=\textwidth, max height=0.8\textheight}
+		\includesvg[inkscapelatex=false]
+		{../../diagrams/lab_1/recurcive}
+	\end{adjustbox}
+	\caption{Схема рекурсивного бинарного поиска}
+	\label{fig:binary-search-recursive}
+\end{figure}
 
 \section{Требования к программному обеспечению}
 Программное обеспечение должно:
@@ -134,53 +176,16 @@ $i$ или $-1$. Схема алгоритма представлена на р�
 
 \section{Реализация алгоритмов}
 Объявления разработанных функций вынесены в заголовочный файл
-\texttt{search.hpp} (листинг~\ref{lst:search-hpp}), а определения --- в файл
-\texttt{search.cpp} (листинг~\ref{lst:search-cpp}). Программа с интерактивным
-меню реализована в файле \texttt{main.cpp}.
-
-\begin{lstlisting}[language=C++,caption={Шаблон заголовочного файла search.hpp},label={lst:search-hpp}]
-#pragma once
-#include <vector>
-
-int linear_search(const std::vector<int>& array, int value);
-int binary_search_iterative_v1(const std::vector<int>& array, int value);
-int binary_search_iterative_v2(const std::vector<int>& array, int value);
-int binary_search_recursive(const std::vector<int>& array, int value,
-                            int left, int right);
-\end{lstlisting}
-
-\begin{lstlisting}[language=C++,caption={Шаблон файла search.cpp},label={lst:search-cpp}]
-#include "search.hpp"
-
-int linear_search(const std::vector<int>& array, int value) {
-    // implementation placeholder
-    return -1;
-}
-
-int binary_search_iterative_v1(const std::vector<int>& array, int value) {
-    // implementation placeholder: binary search, variant 1
-    return -1;
-}
-
-int binary_search_iterative_v2(const std::vector<int>& array, int value) {
-    // implementation placeholder: binary search, variant 2
-    return -1;
-}
-
-int binary_search_recursive(const std::vector<int>& array, int value,
-                            int left, int right) {
-    // implementation placeholder: recursive binary search
-    return -1;
-}
-\end{lstlisting}
-% TODO: заменить шаблонные листинги на настоящие листинги, как только соответствующие файлы будут созданы.
+\texttt{search.hpp}, а определения --- в файл \texttt{search.cpp}. Программа
+с интерактивным меню реализована в файле \texttt{main.cpp}. Исходный код
+функций поиска приведён в приложении А.
 
 \section{Тестирование реализации алгоритмов}
 Для проверки корректности реализации алгоритмов был реализован модуль
 тестирования test.cpp LISTING\_TEMPLATE Тестовые случаи: поиск элемента в
 начале, в середине, в конце массива; поиск отсутствующего массива: больше
 максимального, меньше минимального, отсутствующий; поиск числа в массиве из
-одного элемента.
+одного элемента. % TODO: вставить листинг в приложение А.
 
 Для тестирования был использован массив $\{-8, -1, 0, 5, 7, 15, 25, 90\}$.
 
@@ -292,7 +297,19 @@ $T_{\max}(N)=2\lceil\log_2(N+1)\rceil=O(\log N)$.
 \end{table}
 
 \section{Выводы}
-Здесь будет размещена заглушка для выводов по критериям временной и ёмкостной эффективности.
+По результатам сравнительного анализа сделаны следующие выводы:
+\begin{itemize}
+	\item бинарный поиск асимтотически эффективнее по времени чем линейный
+	      поиск --- $O(\log_2N)$ против $O(N)$ в худшем случае, но требует
+	      предварительной сортировки;
+	\item бинарный поиск с ранним выходом и рекурсивный бинарный поиск
+	      асимптотически эквивалентны по времени в лучшем и худшем случае, но не
+	      рекурсивная реализация требует асимптотически меньше памяти;
+	\item бинарный нерекурсивный поиск в двух вариантах различается только
+	      асимптотикой лучшего случая --- $O(N)$ против $O(\log_2N)$;
+	\item Рекурсивная реализация асимптотически наихудшая по памити среди
+	      всех реализаций.
+\end{itemize}
 
 \chapter*{ЗАКЛЮЧЕНИЕ}
 \addcontentsline{toc}{chapter}{ЗАКЛЮЧЕНИЕ}
@@ -321,8 +338,18 @@ $T_{\max}(N)=2\lceil\log_2(N+1)\rceil=O(\log N)$.
 \makebibliography % TODO сделать настоящие источники
 
 \appendix
-\chapter{Листинг тестов}
-Здесь будет размещен очевидный текст-заглушка для листингов тестов.
-% TODO: напоминалка заменить листинги на настоящие.
+\chapter{Исходный код функций поиска}
+
+\lstinputlisting[
+	language=C++,
+	caption={Заголовочный файл search.hpp},
+	label={lst:search-hpp}
+]{../../source_code/lab_1/search.hpp}
+
+\lstinputlisting[
+	language=C++,
+	caption={Файл search.cpp},
+	label={lst:search-cpp}
+]{../../source_code/lab_1/search.cpp}
 
 \end{document}
