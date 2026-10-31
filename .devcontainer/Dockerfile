@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     openssh-client \
     curl \
+    clang-format \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # В образе texlive по умолчанию всё работает под root. 
