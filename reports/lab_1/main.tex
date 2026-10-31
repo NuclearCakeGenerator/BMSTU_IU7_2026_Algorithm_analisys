@@ -176,16 +176,15 @@ $i$ или $-1$. Схема алгоритма представлена на р�
 
 \section{Реализация алгоритмов}
 Объявления разработанных функций вынесены в заголовочный файл
-\texttt{search.hpp}, а определения --- в файл \texttt{search.cpp}. Программа
-с интерактивным меню реализована в файле \texttt{main.cpp}. Исходный код
-функций поиска приведён в приложении А.
+\texttt{search.hpp} (Листинг~\ref{lst:search-hpp}), а определения --- в файл \texttt{search.cpp} (Листинг~\ref{lst:search-cpp}). Программа
+с интерактивным меню реализована в файле \texttt{main.cpp} (Листинг~\ref{lst:main-cpp}).
 
 \section{Тестирование реализации алгоритмов}
 Для проверки корректности реализации алгоритмов был реализован модуль
-тестирования test.cpp LISTING\_TEMPLATE Тестовые случаи: поиск элемента в
+тестирования \texttt{test.cpp} (Листинг~\ref{lst:test-cpp}). Тестовые случаи: поиск элемента в
 начале, в середине, в конце массива; поиск отсутствующего массива: больше
 максимального, меньше минимального, отсутствующий; поиск числа в массиве из
-одного элемента. % TODO: вставить листинг в приложение А.
+одного элемента.
 
 Для тестирования был использован массив $\{-8, -1, 0, 5, 7, 15, 25, 90\}$.
 
@@ -351,5 +350,17 @@ $T_{\max}(N)=2\lceil\log_2(N+1)\rceil=O(\log N)$.
 	caption={Файл search.cpp},
 	label={lst:search-cpp}
 ]{../../source_code/lab_1/search.cpp}
+
+\lstinputlisting[
+	language=C++,
+	caption={Файл main.cpp},
+	label={lst:main-cpp}
+]{../../source_code/lab_1/main.cpp}
+
+\lstinputlisting[
+	language=C++,
+	caption={Файл test.cpp},
+	label={lst:test-cpp}
+]{../../source_code/lab_1/test.cpp}
 
 \end{document}
