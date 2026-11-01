@@ -8,7 +8,7 @@ build_dir="${script_dir}/build"
 mkdir -p "${build_dir}"
 
 cxx="${CXX:-g++}"
-common_flags=(-std=c++20 -Wall -Wextra -Wpedantic)
+common_flags=(-std=c++20 -Wall -Wextra -Wpedantic -O0)
 
 "${cxx}" "${common_flags[@]}" \
     "${script_dir}/search.cpp" \
