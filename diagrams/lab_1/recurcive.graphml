@@ -70,7 +70,7 @@
           <y:Geometry height="53.0" width="200.0" x="630.0" y="166.0"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="78.572265625" x="60.7138671875" xml:space="preserve" y="17.761962890625">mid := (l + r) / 2</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="75.51611328125" x="62.241943359375" xml:space="preserve" y="17.761962890625">mid = (l + r) / 2</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
