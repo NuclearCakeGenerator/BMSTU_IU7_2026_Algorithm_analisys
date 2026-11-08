@@ -105,10 +105,14 @@ $i \in \{0,\ldots,n-1\}$ и $j \in \{0,\ldots,q-1\}$ сначала
 предварительно вычисляются множители:
 \begin{equation}
 	R_i = \sum_{k=0}^{\lfloor m/2\rfloor-1}
-	a_{i,2k}\cdot a_{i,2k+1}, \qquad
+	a_{i,2k}\cdot a_{i,2k+1},
+	\label{eq:winograd-precompute-1}
+\end{equation}
+
+\begin{equation}
 	C_j = \sum_{k=0}^{\lfloor m/2\rfloor-1}
 	b_{2k,j}\cdot b_{2k+1,j}.
-	\label{eq:winograd-precompute}
+	\label{eq:winograd-precompute-2}
 \end{equation}
 Для чётного $m$ элемент результирующей матрицы вычисляется по формуле
 \begin{equation}
@@ -137,8 +141,7 @@ $O(nmq)$, а дополнительная память без учёта мат�
 Алгоритм Винограда также имеет временную сложность $O(nmq)$, поскольку
 число обрабатываемых пар индексов пропорционально $m/2$, а все пары
 строк и столбцов перебираются. При этом предварительное вычисление $R_i$ и
-$C_j$ уменьшает число умножений в основном цикле примерно в два раза по
-сравнению со стандартным алгоритмом, добавляя операции сложения и вычитания.
+$C_j$ уменьшает число умножений, добавляя операции сложения и вычитания.
 Дополнительная память алгоритма составляет $O(n+q)$ для массивов
 предварительно вычисленных значений; память под результирующую матрицу не
 учитывается. При квадратных матрицах оба алгоритма имеют сложность
@@ -159,63 +162,33 @@ $O(n^3)$, но различаются количеством базовых оп
 
 Для алгоритмов Винограда дополнительно определены:
 \begin{itemize}
-	\item $R$ — массив из $n$ элементов, вычисляемый по формуле~\ref{eq:winograd-precompute};
-	\item $C$ — массив из $q$ элементов, вычисляемый по формуле~\ref{eq:winograd-precompute}.
+	\item $R$ — массив из $n$ элементов, вычисляемый по формуле~\ref{eq:winograd-precompute-1};
+	\item $C$ — массив из $q$ элементов, вычисляемый по формуле~\ref{eq:winograd-precompute-2}.
 \end{itemize}
 
+\subsubsection{Стандартный алгоритм умножения матриц}
+Схема стандартного алгоритма умножения матриц приведена на рисунке~\ref{fig:standart_matrix_multiplication}.
+\begin{figure}[H]
+	\centering
+	\begin{adjustbox}{max width=\textwidth, max height=0.8\textheight}
+		\includesvg[inkscapelatex=false]
+		{../../diagrams/lab_2/standart_matrix_multiplication}
+	\end{adjustbox}
+	\caption{Схема стандартного алгоритма умножения матриц}
+	\label{fig:standart_matrix_multiplication}
+\end{figure}
 
-% \subsubsection{Нерекурсивный алгоритм бинарного поиска}
-% Нерекурсивный алгоритм итеративно ищет индекс элемента в отсортированном
-% по возрастанию массиве $A$ между позициями $l$ и $r$. Изначально позиции обозначают
-% края входного массива. На каждой итерации алгоритм сравнивает элемент $A_mid$ из середины диапазона с
-% $x$ и двигает один из краев диапазона на середину диапазона, сужая его. Если
-% $A_mid < x$, то $r = A_mid$ и $l = A_mid$ в противном случае.
-
-% Первый вариант алгоритма проверяет текущий элемент $A_mid$ c $x$ и в случае равентсва
-% досрочно завершает работу, возвращая индекс текущего элемента. В случае
-% вырождения диапазона алгоритм возвращает $-1$. Второй вариант алгоритма
-% проверяет элемент на равенство только в момент вырождения диапазона до одного
-% элемента. В случае равенства возвращается индекс элемента $i$ и $-1$ в противном
-% случае. Схемы алгоритмов приведены на рисунке~\ref{fig:binary-search-iterative-v1}
-% и рисунке~\ref{fig:binary-search-iterative-v2}.
-
-% \begin{figure}[H]
-% 	\centering
-% 	\begin{adjustbox}{max width=\textwidth, max height=0.8\textheight}
-% 		\includesvg[inkscapelatex=false]
-% 		{../../diagrams/lab_1/non-recurcive_v1}
-% 	\end{adjustbox}
-% 	\caption{Схема нерекурсивного бинарного поиска, вариант 1}
-% 	\label{fig:binary-search-iterative-v1}
-% \end{figure}
-
-% \begin{figure}[H]
-% 	\centering
-% 	\begin{adjustbox}{max width=\textwidth, max height=0.8\textheight}
-% 		\includesvg[inkscapelatex=false]
-% 		{../../diagrams/lab_1/non-recurcive_v2}
-% 	\end{adjustbox}
-% 	\caption{Схема нерекурсивного бинарного поиска, вариант 2}
-% 	\label{fig:binary-search-iterative-v2}
-% \end{figure}
-
-% \subsubsection{Рекурсивный алгоритм бинарного поиска}
-% Рекурсивный алгоритм бинарного поиска реализует тот-же принцип деления диапазона
-% поиска пополам, что и нерекурсивные алгоритмы. Повторение раунда деления
-% производится засчет рекурсивного вызова функции на суженном диапазоне. Проверка
-% на равенство элемента $A_i$ производится, когда диапазон сомкнулся до одного
-% элемента. В зависимотсти от истинности равенства $A_i = x$ программа возвращает
-% $i$ или $-1$. Схема алгоритма представлена на рисунке~\ref{fig:binary-search-recursive}.
-
-% \begin{figure}[H]
-% 	\centering
-% 	\begin{adjustbox}{max width=\textwidth, max height=0.8\textheight}
-% 		\includesvg[inkscapelatex=false]
-% 		{../../diagrams/lab_1/recurcive}
-% 	\end{adjustbox}
-% 	\caption{Схема рекурсивного бинарного поиска}
-% 	\label{fig:binary-search-recursive}
-% \end{figure}
+\subsubsection{Алгоритм Винограда}
+Схема алгоритма Винограда для умножения матриц приведена на рисунке~\ref{fig:vinograd_matrix_multiplication}.
+\begin{figure}[H]
+	\centering
+	\begin{adjustbox}{max width=\textwidth, max height=0.8\textheight}
+		\includesvg[inkscapelatex=false]
+		{../../diagrams/lab_2/vinograd_matrix_multiplication}
+	\end{adjustbox}
+	\caption{Схема алгоритма Винограда умножения матриц}
+	\label{fig:vinograd_matrix_multiplication}
+\end{figure}
 
 \section{Требования к программному обеспечению}
 К программе предъявляются следующие требования:
