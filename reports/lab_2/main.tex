@@ -190,6 +190,26 @@ $O(n^3)$, но различаются количеством базовых оп
 	\label{fig:vinograd_matrix_multiplication}
 \end{figure}
 
+\subsubsection{Оптимизированный алгоритм Винограда}
+Согласно варианту к алгоритму Винограда применяются две оптимизации:
+\begin{itemize}
+	\item Кеширование неизменяющихся, но многократно вычисляемых величин ---
+	      $m // 2$ в условии циклов и $m \% 2$ в проверке на нечетность.
+	\item Изменения шага цикла на $i += 2$ для отказа от умножения на $2$ при
+	      вычислении позиции элемента в матрице.
+\end{itemize}
+
+Схема оптимизированного алгоритма Винограда для умножения матриц приведена на рисунке~\ref{fig:optimized_vinograd_matrix_multiplication}.
+\begin{figure}[H]
+	\centering
+	\begin{adjustbox}{max width=\textwidth, max height=0.8\textheight}
+		\includesvg[inkscapelatex=false]
+		{../../diagrams/lab_2/optimized_vinograd_matrix_multiplication}
+	\end{adjustbox}
+	\caption{Схема алгоритма Винограда умножения матриц}
+	\label{fig:optimized_vinograd_matrix_multiplication}
+\end{figure}
+
 \section{Требования к программному обеспечению}
 К программе предъявляются следующие требования:
 \begin{itemize}
