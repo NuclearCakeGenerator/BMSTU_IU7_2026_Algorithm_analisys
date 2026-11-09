@@ -46,3 +46,6 @@ obj/
 
 !tasks/*
 !bmstu/*
+
+# Python virtual environment
+.venv/

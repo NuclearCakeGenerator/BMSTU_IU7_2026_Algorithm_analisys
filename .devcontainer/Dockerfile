@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     clang-format \
     inkscape \
+    python3.14-venv \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # В образе texlive по умолчанию всё работает под root. 
