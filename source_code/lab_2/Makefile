@@ -2,6 +2,8 @@ CXX ?= g++
 CXXFLAGS := -std=c++20 -Wall -Wextra -Wpedantic -O0 -g0
 BUILD_DIR := build
 COMMON := matrix.cpp benchmark_support.cpp
+VENV := $(abspath ../../.venv)
+PYTHON := $(VENV)/bin/python
 
 .PHONY: all main test benchmark clean
 
@@ -14,7 +16,8 @@ test: $(BUILD_DIR)/matrix_tests
 	./$(BUILD_DIR)/matrix_tests
 
 benchmark: $(BUILD_DIR)/matrix_benchmark
-	./$(BUILD_DIR)/matrix_benchmark 10 1000 10 10
+	./$(BUILD_DIR)/matrix_benchmark 10 100 10 10
+	$(PYTHON) plot_results.py
 
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
@@ -29,4 +32,4 @@ $(BUILD_DIR)/matrix_benchmark: $(COMMON) benchmark.cpp matrix.hpp benchmark_supp
 	$(CXX) $(CXXFLAGS) $(COMMON) benchmark.cpp -o $@
 
 clean:
-	rm -rf $(BUILD_DIR) standard.csv winograd.csv winograd_optimized.csv
+	rm -rf $(BUILD_DIR) data plots
