@@ -14,7 +14,7 @@ test: $(BUILD_DIR)/matrix_tests
 	./$(BUILD_DIR)/matrix_tests
 
 benchmark: $(BUILD_DIR)/matrix_benchmark
-	./$(BUILD_DIR)/matrix_benchmark 10 10000 10 10
+	./$(BUILD_DIR)/matrix_benchmark 10 1000 10 10
 
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
