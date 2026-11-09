@@ -253,13 +253,15 @@ $O(n^3)$, но различаются количеством базовых оп
 
 \section{Реализация алгоритмов}
 Объявления разработанных функций вынесены в заголовочные файлы
-\texttt{matrix.hpp} и \texttt{benchmark_support_hpp} (Листинги~\ref{lst:matrix-hpp}
-и \ref{lst:benchmark-support-hpp}), а определения --- в файлы \texttt{matrix.cpp}, \texttt{benchmark_support.cpp} и \texttt{benchmark.cpp} (Листинг~\ref{lst:matrix-cpp}, \ref{lst:benchmark-support-cpp} и \ref{lst:benchmark-cpp}). Программа
+\texttt{matrix.hpp} и \texttt{benchmark\_support.hpp} (листинги~\ref{lst:matrix-hpp}
+и \ref{lst:benchmark-support-hpp}), а определения --- в файлы \texttt{matrix.cpp},
+\texttt{benchmark\_support.cpp} и \texttt{benchmark.cpp} (листинги~\ref{lst:matrix-cpp},
+\ref{lst:benchmark-support-cpp} и \ref{lst:benchmark-cpp}). Программа
 с интерактивным меню реализована в файле \texttt{main.cpp} (Листинг~\ref{lst:main-cpp}).
 
 \section{Тестирование реализации алгоритмов}
 Для проверки корректности реализации алгоритмов был реализован модуль
-тестирования \texttt{test.cpp}. Каждый набор входных данных проверяется
+тестирования \texttt{test.cpp} (листинг~\ref{lst:test-cpp}). Каждый набор входных данных проверяется
 с помощью стандартного алгоритма, алгоритма Винограда и оптимизированного
 алгоритма Винограда. Результат работы алгоритмов сравнивается с заранее
 известной матрицей.
@@ -270,53 +272,52 @@ $O(n^3)$, но различаются количеством базовых оп
 	\label{tab:tests}
 	\begin{tabularx}{\textwidth}{|X|X|X|X|}
 		\hline
-		Описание теста & Входные данные                                 & Ожидаемый результат &
-		Полученный результат                                                                    \\ \hline
+		Описание теста & Входные данные                               & Ожидаемый результат &
+		Полученный результат                                                                  \\ \hline
 		Умножение прямоугольных матриц
-		               & $A=\begin{pmatrix}1&2&3\\4&5&6\end{pmatrix}$,
-		$B=\begin{pmatrix}7&8\\9&10\\11&12\end{pmatrix}$
+		               & $\begin{pmatrix}1&2&3\\4&5&6\end{pmatrix}$,
+		$\begin{pmatrix}7&8\\9&10\\11&12\end{pmatrix}$
 		               & $\begin{pmatrix}58&64\\139&154\end{pmatrix}$
-		               & $\begin{pmatrix}58&64\\139&154\end{pmatrix}$                           \\ \hline
+		               & $\begin{pmatrix}58&64\\139&154\end{pmatrix}$                         \\ \hline
 		Нечётный внутренний размер матриц
-		               & $A=\begin{pmatrix}2&-1&4\\0&3&5\end{pmatrix}$,
-		$B=\begin{pmatrix}1&2\\-2&0\\3&4\end{pmatrix}$
+		               & $\begin{pmatrix}2&-1&4\\0&3&5\end{pmatrix}$,
+		$\begin{pmatrix}1&2\\-2&0\\3&4\end{pmatrix}$
 		               & $\begin{pmatrix}16&20\\9&20\end{pmatrix}$
-		               & $\begin{pmatrix}16&20\\9&20\end{pmatrix}$                              \\ \hline
+		               & $\begin{pmatrix}16&20\\9&20\end{pmatrix}$                            \\ \hline
 		Умножение на единичную матрицу слева
-		               & $I=\begin{pmatrix}1&0\\0&1\end{pmatrix}$,
-		$A=\begin{pmatrix}2&-1&4\\0&3&5\end{pmatrix}$
+		               & $\begin{pmatrix}1&0\\0&1\end{pmatrix}$,
+		$\begin{pmatrix}2&-1&4\\0&3&5\end{pmatrix}$
 		               & $\begin{pmatrix}2&-1&4\\0&3&5\end{pmatrix}$
-		               & $\begin{pmatrix}2&-1&4\\0&3&5\end{pmatrix}$                            \\ \hline
+		               & $\begin{pmatrix}2&-1&4\\0&3&5\end{pmatrix}$                          \\ \hline
 		Умножение на единичную матрицу справа
-		               & $A=\begin{pmatrix}2&-1&4\\0&3&5\end{pmatrix}$,
-		$I=\begin{pmatrix}1&0&0\\0&1&0\\0&0&1\end{pmatrix}$
+		               & $\begin{pmatrix}2&-1&4\\0&3&5\end{pmatrix}$,
+		$\begin{pmatrix}1&0&0\\0&1&0\\0&0&1\end{pmatrix}$
 		               & $\begin{pmatrix}2&-1&4\\0&3&5\end{pmatrix}$
-		               & $\begin{pmatrix}2&-1&4\\0&3&5\end{pmatrix}$                            \\ \hline
+		               & $\begin{pmatrix}2&-1&4\\0&3&5\end{pmatrix}$                          \\ \hline
 		Умножение нулевой матрицы слева
-		               & $A=\begin{pmatrix}0&0&0\\0&0&0\end{pmatrix}$,
-		$B=\begin{pmatrix}7&8\\9&10\\11&12\end{pmatrix}$
+		               & $\begin{pmatrix}0&0&0\\0&0&0\end{pmatrix}$,
+		$\begin{pmatrix}7&8\\9&10\\11&12\end{pmatrix}$
 		               & $\begin{pmatrix}0&0\\0&0\end{pmatrix}$
-		               & $\begin{pmatrix}0&0\\0&0\end{pmatrix}$                                 \\ \hline
+		               & $\begin{pmatrix}0&0\\0&0\end{pmatrix}$                               \\ \hline
 		Умножение нулевой матрицы справа
-		               & $A=\begin{pmatrix}1&2&3\\4&5&6\end{pmatrix}$,
-		$B=\begin{pmatrix}0&0\\0&0\\0&0\end{pmatrix}$
+		               & $\begin{pmatrix}1&2&3\\4&5&6\end{pmatrix}$,
+		$\begin{pmatrix}0&0\\0&0\\0&0\end{pmatrix}$
 		               & $\begin{pmatrix}0&0\\0&0\end{pmatrix}$
-		               & $\begin{pmatrix}0&0\\0&0\end{pmatrix}$                                 \\ \hline
+		               & $\begin{pmatrix}0&0\\0&0\end{pmatrix}$                               \\ \hline
 		Умножение обратных матриц
-		               & $A=\begin{pmatrix}1&1\\0&1\end{pmatrix}$,
-		$A^{-1}=\begin{pmatrix}1&-1\\0&1\end{pmatrix}$
+		               & $\begin{pmatrix}1&1\\0&1\end{pmatrix}$,
+		$\begin{pmatrix}1&-1\\0&1\end{pmatrix}$
 		               & $\begin{pmatrix}1&0\\0&1\end{pmatrix}$
-		               & $\begin{pmatrix}1&0\\0&1\end{pmatrix}$                                 \\ \hline
+		               & $\begin{pmatrix}1&0\\0&1\end{pmatrix}$                               \\ \hline
 		Умножение матриц размера $1\times1$
-		               & $A=\begin{pmatrix}-1\end{pmatrix}$,
-		$B=\begin{pmatrix}-1\end{pmatrix}$
+		               & $\begin{pmatrix}-1\end{pmatrix}$,
+		$\begin{pmatrix}-1\end{pmatrix}$
 		               & $\begin{pmatrix}1\end{pmatrix}$
-		               & $\begin{pmatrix}1\end{pmatrix}$                                        \\ \hline
+		               & $\begin{pmatrix}1\end{pmatrix}$                                      \\ \hline
 	\end{tabularx}
 \end{table}
 
-Все модульные тесты были пройдены. При запуске команды \texttt{make test}
-выводится сообщение «Все модульные тесты пройдены.».
+Все тесты были пройдены.
 
 \chapter{Исследовательская часть}
 
@@ -415,28 +416,46 @@ $O(n^3)$, но различаются количеством базовых оп
 \chapter*{Приложение А}
 \addcontentsline{toc}{chapter}{Приложение А}
 
-% \lstinputlisting[
-% 	language=C++,
-% 	caption={Заголовочный файл search.hpp},
-% 	label={lst:search-hpp}
-% ]{../../source_code/lab_1/search.hpp}
+\lstinputlisting[
+	language=C++,
+	caption={Заголовочный файл matrix.hpp},
+	label={lst:matrix-hpp}
+]{../../source_code/lab_2/matrix.hpp}
 
-% \lstinputlisting[
-% 	language=C++,
-% 	caption={Файл search.cpp},
-% 	label={lst:search-cpp}
-% ]{../../source_code/lab_1/search.cpp}
+\lstinputlisting[
+	language=C++,
+	caption={Файл matrix.cpp},
+	label={lst:matrix-cpp}
+]{../../source_code/lab_2/matrix.cpp}
 
-% \lstinputlisting[
-% 	language=C++,
-% 	caption={Файл main.cpp},
-% 	label={lst:main-cpp}
-% ]{../../source_code/lab_1/main.cpp}
+\lstinputlisting[
+	language=C++,
+	caption={Заголовочный файл benchmark\_support.hpp},
+	label={lst:benchmark-support-hpp}
+]{../../source_code/lab_2/benchmark_support.hpp}
 
-% \lstinputlisting[
-% 	language=C++,
-% 	caption={Файл test.cpp},
-% 	label={lst:test-cpp}
-% ]{../../source_code/lab_1/test.cpp}
+\lstinputlisting[
+	language=C++,
+	caption={Файл benchmark\_support.cpp},
+	label={lst:benchmark-support-cpp}
+]{../../source_code/lab_2/benchmark_support.cpp}
+
+\lstinputlisting[
+	language=C++,
+	caption={Файл benchmark.cpp},
+	label={lst:benchmark-cpp}
+]{../../source_code/lab_2/benchmark.cpp}
+
+\lstinputlisting[
+	language=C++,
+	caption={Файл main.cpp},
+	label={lst:main-cpp}
+]{../../source_code/lab_2/main.cpp}
+
+\lstinputlisting[
+	language=C++,
+	caption={Файл test.cpp},
+	label={lst:test-cpp}
+]{../../source_code/lab_2/test.cpp}
 
 \end{document}
