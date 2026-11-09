@@ -15,74 +15,6 @@ void check_multiplication_dimensions(const Matrix &left, const Matrix &right) {
   }
 }
 
-Matrix multiply_winograd_impl(const Matrix &left, const Matrix &right,
-                              bool optimized) {
-  check_multiplication_dimensions(left, right);
-
-  const std::size_t rows = left.rows();
-  const std::size_t inner = left.columns();
-  const std::size_t columns = right.columns();
-  const std::size_t pair_count = inner / 2;
-  Matrix result(rows, columns);
-  std::vector<int> row_factors(rows, 0);
-  std::vector<int> column_factors(columns, 0);
-
-  for (std::size_t i = 0; i < rows; ++i) {
-    if (optimized) {
-      for (std::size_t k = 0; k < inner; k += 2) {
-        if (k + 1 >= inner) {
-          break;
-        }
-        row_factors[i] += left.at(i, k) * left.at(i, k + 1);
-      }
-    } else {
-      for (std::size_t k = 0; k < pair_count; ++k) {
-        row_factors[i] += left.at(i, 2 * k) * left.at(i, 2 * k + 1);
-      }
-    }
-  }
-
-  for (std::size_t j = 0; j < columns; ++j) {
-    if (optimized) {
-      for (std::size_t k = 0; k < inner; k += 2) {
-        if (k + 1 >= inner) {
-          break;
-        }
-        column_factors[j] += right.at(k, j) * right.at(k + 1, j);
-      }
-    } else {
-      for (std::size_t k = 0; k < pair_count; ++k) {
-        column_factors[j] += right.at(2 * k, j) * right.at(2 * k + 1, j);
-      }
-    }
-  }
-
-  for (std::size_t i = 0; i < rows; ++i) {
-    for (std::size_t j = 0; j < columns; ++j) {
-      int value = -row_factors[i] - column_factors[j];
-      if (optimized) {
-        for (std::size_t k = 0; k < inner; k += 2) {
-          if (k + 1 >= inner) {
-            break;
-          }
-          value += (left.at(i, k) + right.at(k + 1, j)) *
-                   (left.at(i, k + 1) + right.at(k, j));
-        }
-      } else {
-        for (std::size_t k = 0; k < pair_count; ++k) {
-          value += (left.at(i, 2 * k) + right.at(2 * k + 1, j)) *
-                   (left.at(i, 2 * k + 1) + right.at(2 * k, j));
-        }
-      }
-      if (inner % 2 != 0) {
-        value += left.at(i, inner - 1) * right.at(inner - 1, j);
-      }
-      result.at(i, j) = value;
-    }
-  }
-  return result;
-}
-
 } // namespace
 
 Matrix::Matrix(std::size_t rows, std::size_t columns)
@@ -109,11 +41,16 @@ bool Matrix::operator==(const Matrix &other) const noexcept {
 
 Matrix multiply_standard(const Matrix &left, const Matrix &right) {
   check_multiplication_dimensions(left, right);
-  Matrix result(left.rows(), right.columns());
-  for (std::size_t i = 0; i < left.rows(); ++i) {
-    for (std::size_t j = 0; j < right.columns(); ++j) {
-      for (std::size_t k = 0; k < left.columns(); ++k) {
-        result.at(i, j) += left.at(i, k) * right.at(k, j);
+
+  const std::size_t rows = left.rows();
+  const std::size_t inner = left.columns();
+  const std::size_t columns = right.columns();
+  Matrix result(rows, columns);
+
+  for (std::size_t i = 0; i < rows; ++i) {
+    for (std::size_t j = 0; j < columns; ++j) {
+      for (std::size_t k = 0; k < inner; ++k) {
+        result.at(i, j) = result.at(i, j) + left.at(i, k) * right.at(k, j);
       }
     }
   }
@@ -121,11 +58,86 @@ Matrix multiply_standard(const Matrix &left, const Matrix &right) {
 }
 
 Matrix multiply_winograd(const Matrix &left, const Matrix &right) {
-  return multiply_winograd_impl(left, right, false);
+  check_multiplication_dimensions(left, right);
+
+  const std::size_t rows = left.rows();
+  const std::size_t inner = left.columns();
+  const std::size_t columns = right.columns();
+  Matrix result(rows, columns);
+  std::vector<int> row_factors(rows, 0);
+  std::vector<int> column_factors(columns, 0);
+
+  for (std::size_t i = 0; i < rows; ++i) {
+    for (std::size_t k = 0; k < inner / 2; ++k) {
+      row_factors[i] =
+          row_factors[i] + left.at(i, 2 * k) * left.at(i, 2 * k + 1);
+    }
+  }
+
+  for (std::size_t j = 0; j < columns; ++j) {
+    for (std::size_t k = 0; k < inner / 2; ++k) {
+      column_factors[j] =
+          column_factors[j] + right.at(2 * k, j) * right.at(2 * k + 1, j);
+    }
+  }
+
+  for (std::size_t i = 0; i < rows; ++i) {
+    for (std::size_t j = 0; j < columns; ++j) {
+      result.at(i, j) = -row_factors[i] - column_factors[j];
+      for (std::size_t k = 0; k < inner / 2; ++k) {
+        result.at(i, j) =
+            result.at(i, j) + (left.at(i, 2 * k) + right.at(2 * k + 1, j)) *
+                                  (left.at(i, 2 * k + 1) + right.at(2 * k, j));
+      }
+      if (inner % 2 == 1) {
+        result.at(i, j) =
+            result.at(i, j) + left.at(i, inner - 1) * right.at(inner - 1, j);
+      }
+    }
+  }
+  return result;
 }
 
 Matrix multiply_winograd_optimized(const Matrix &left, const Matrix &right) {
-  return multiply_winograd_impl(left, right, true);
+  check_multiplication_dimensions(left, right);
+
+  const std::size_t rows = left.rows();
+  const std::size_t inner = left.columns();
+  const std::size_t columns = right.columns();
+  const std::size_t limit = 2 * (inner / 2);
+  const bool is_odd = inner % 2 == 1;
+  Matrix result(rows, columns);
+  std::vector<int> row_factors(rows, 0);
+  std::vector<int> column_factors(columns, 0);
+
+  for (std::size_t i = 0; i < rows; ++i) {
+    for (std::size_t k = 0; k < limit; k += 2) {
+      row_factors[i] = row_factors[i] + left.at(i, k) * left.at(i, k + 1);
+    }
+  }
+
+  for (std::size_t j = 0; j < columns; ++j) {
+    for (std::size_t k = 0; k < limit; k += 2) {
+      column_factors[j] =
+          column_factors[j] + right.at(k, j) * right.at(k + 1, j);
+    }
+  }
+
+  for (std::size_t i = 0; i < rows; ++i) {
+    for (std::size_t j = 0; j < columns; ++j) {
+      result.at(i, j) = -row_factors[i] - column_factors[j];
+      for (std::size_t k = 0; k < limit; k += 2) {
+        result.at(i, j) =
+            result.at(i, j) + (left.at(i, k) + right.at(k + 1, j)) *
+                                  (left.at(i, k + 1) + right.at(k, j));
+      }
+      if (is_odd) {
+        result.at(i, j) =
+            result.at(i, j) + left.at(i, inner - 1) * right.at(inner - 1, j);
+      }
+    }
+  }
+  return result;
 }
 
 bool load_matrix_from_file(const std::string &path, Matrix &destination,
