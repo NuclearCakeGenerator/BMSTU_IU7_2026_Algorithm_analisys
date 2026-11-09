@@ -166,7 +166,7 @@ $O(n^3)$, но различаются количеством базовых оп
 	\item $C$ — массив из $q$ элементов, вычисляемый по формуле~\ref{eq:winograd-precompute-2}.
 \end{itemize}
 
-\subsubsection{Стандартный алгоритм умножения матриц}
+\subsection{Стандартный алгоритм умножения матриц}
 Схема стандартного алгоритма умножения матриц приведена на рисунке~\ref{fig:standart_matrix_multiplication}.
 \begin{figure}[H]
 	\centering
@@ -178,7 +178,7 @@ $O(n^3)$, но различаются количеством базовых оп
 	\label{fig:standart_matrix_multiplication}
 \end{figure}
 
-\subsubsection{Алгоритм Винограда}
+\subsection{Алгоритм Винограда}
 Схема алгоритма Винограда для умножения матриц приведена на рисунке~\ref{fig:vinograd_matrix_multiplication}.
 \begin{figure}[H]
 	\centering
@@ -190,7 +190,7 @@ $O(n^3)$, но различаются количеством базовых оп
 	\label{fig:vinograd_matrix_multiplication}
 \end{figure}
 
-\subsubsection{Оптимизированный алгоритм Винограда}
+\subsection{Оптимизированный алгоритм Винограда}
 Согласно варианту к алгоритму Винограда применяются две оптимизации:
 \begin{itemize}
 	\item Кеширование неизменяющихся, но многократно вычисляемых величин ---
@@ -246,53 +246,77 @@ $O(n^3)$, но различаются количеством базовых оп
 
 \section{Средства реализации}
 В качестве языка программирования со статической типизацией выбран C++
-(стандарт C++20) \cite{cpp20}.
+(стандарт C++20) \cite{cpp20}. % TODO кратко перечисли использованные возможности стандартной библиотеки
 
 Для сборки исполняемых файлов предполагается использовать компилятор GCC
 с флагами \texttt{-std=c++20 -Wall -Wextra -O0}.
 
-% \section{Реализация алгоритмов}
-% Объявления разработанных функций вынесены в заголовочный файл
-% \texttt{search.hpp} (Листинг~\ref{lst:search-hpp}), а определения --- в файл \texttt{search.cpp} (Листинг~\ref{lst:search-cpp}). Программа
-% с интерактивным меню реализована в файле \texttt{main.cpp} (Листинг~\ref{lst:main-cpp}).
+\section{Реализация алгоритмов}
+Объявления разработанных функций вынесены в заголовочные файлы
+\texttt{matrix.hpp} и \texttt{benchmark_support_hpp} (Листинги~\ref{lst:matrix-hpp}
+и \ref{lst:benchmark-support-hpp}), а определения --- в файлы \texttt{matrix.cpp}, \texttt{benchmark_support.cpp} и \texttt{benchmark.cpp} (Листинг~\ref{lst:matrix-cpp}, \ref{lst:benchmark-support-cpp} и \ref{lst:benchmark-cpp}). Программа
+с интерактивным меню реализована в файле \texttt{main.cpp} (Листинг~\ref{lst:main-cpp}).
 
-% \section{Тестирование реализации алгоритмов}
-% Для проверки корректности реализации алгоритмов был реализован модуль
-% тестирования \texttt{test.cpp} (Листинг~\ref{lst:test-cpp}). Тестовые случаи: поиск элемента в
-% начале, в середине, в конце массива; поиск отсутствующего массива: больше
-% максимального, меньше минимального, отсутствующий; поиск числа в массиве из
-% одного элемента.
+\section{Тестирование реализации алгоритмов}
+Для проверки корректности реализации алгоритмов был реализован модуль
+тестирования \texttt{test.cpp}. Каждый набор входных данных проверяется
+с помощью стандартного алгоритма, алгоритма Винограда и оптимизированного
+алгоритма Винограда. Результат работы алгоритмов сравнивается с заранее
+известной матрицей.
 
-% Для тестирования был использован массив $\{-8, -1, 0, 5, 7, 15, 25, 90\}$.
+\begin{table}[H]
+	\centering
+	\caption{Описание тестов}
+	\label{tab:tests}
+	\begin{tabularx}{\textwidth}{|X|X|X|X|}
+		\hline
+		Описание теста & Входные данные                                 & Ожидаемый результат &
+		Полученный результат                                                                    \\ \hline
+		Умножение прямоугольных матриц
+		               & $A=\begin{pmatrix}1&2&3\\4&5&6\end{pmatrix}$,
+		$B=\begin{pmatrix}7&8\\9&10\\11&12\end{pmatrix}$
+		               & $\begin{pmatrix}58&64\\139&154\end{pmatrix}$
+		               & $\begin{pmatrix}58&64\\139&154\end{pmatrix}$                           \\ \hline
+		Нечётный внутренний размер матриц
+		               & $A=\begin{pmatrix}2&-1&4\\0&3&5\end{pmatrix}$,
+		$B=\begin{pmatrix}1&2\\-2&0\\3&4\end{pmatrix}$
+		               & $\begin{pmatrix}16&20\\9&20\end{pmatrix}$
+		               & $\begin{pmatrix}16&20\\9&20\end{pmatrix}$                              \\ \hline
+		Умножение на единичную матрицу слева
+		               & $I=\begin{pmatrix}1&0\\0&1\end{pmatrix}$,
+		$A=\begin{pmatrix}2&-1&4\\0&3&5\end{pmatrix}$
+		               & $\begin{pmatrix}2&-1&4\\0&3&5\end{pmatrix}$
+		               & $\begin{pmatrix}2&-1&4\\0&3&5\end{pmatrix}$                            \\ \hline
+		Умножение на единичную матрицу справа
+		               & $A=\begin{pmatrix}2&-1&4\\0&3&5\end{pmatrix}$,
+		$I=\begin{pmatrix}1&0&0\\0&1&0\\0&0&1\end{pmatrix}$
+		               & $\begin{pmatrix}2&-1&4\\0&3&5\end{pmatrix}$
+		               & $\begin{pmatrix}2&-1&4\\0&3&5\end{pmatrix}$                            \\ \hline
+		Умножение нулевой матрицы слева
+		               & $A=\begin{pmatrix}0&0&0\\0&0&0\end{pmatrix}$,
+		$B=\begin{pmatrix}7&8\\9&10\\11&12\end{pmatrix}$
+		               & $\begin{pmatrix}0&0\\0&0\end{pmatrix}$
+		               & $\begin{pmatrix}0&0\\0&0\end{pmatrix}$                                 \\ \hline
+		Умножение нулевой матрицы справа
+		               & $A=\begin{pmatrix}1&2&3\\4&5&6\end{pmatrix}$,
+		$B=\begin{pmatrix}0&0\\0&0\\0&0\end{pmatrix}$
+		               & $\begin{pmatrix}0&0\\0&0\end{pmatrix}$
+		               & $\begin{pmatrix}0&0\\0&0\end{pmatrix}$                                 \\ \hline
+		Умножение обратных матриц
+		               & $A=\begin{pmatrix}1&1\\0&1\end{pmatrix}$,
+		$A^{-1}=\begin{pmatrix}1&-1\\0&1\end{pmatrix}$
+		               & $\begin{pmatrix}1&0\\0&1\end{pmatrix}$
+		               & $\begin{pmatrix}1&0\\0&1\end{pmatrix}$                                 \\ \hline
+		Умножение матриц размера $1\times1$
+		               & $A=\begin{pmatrix}-1\end{pmatrix}$,
+		$B=\begin{pmatrix}-1\end{pmatrix}$
+		               & $\begin{pmatrix}1\end{pmatrix}$
+		               & $\begin{pmatrix}1\end{pmatrix}$                                        \\ \hline
+	\end{tabularx}
+\end{table}
 
-% \begin{table}[H]
-% 	\centering
-% 	\caption{Описание тестов}
-% 	\label{tab:tests}
-% 	\begin{tabularx}{\textwidth}{|X|X|X|X|}
-% 		\hline
-% 		Описание теста & Входные данные   & Ожидаемый результат &
-% 		Полученный результат                                                       \\ \hline
-% 		Поиск элемента в начале массива
-% 		               & $x=-8$           & Индекс 0            & Индекс 0         \\ \hline
-% 		Поиск элемента в конце массива
-% 		               & $x=90$           & Индекс 7            & Индекс 7         \\ \hline
-% 		Поиск элемента в середине массива
-% 		               & $x=5$            & Индекс 3            & Индекс 3         \\ \hline
-% 		Поиск элемента меньше минимального
-% 		               & $x=-10$          & Не найден ($-1$)    & Не найден ($-1$) \\ \hline
-% 		Поиск элемента больше максимального
-% 		               & $x=100$          & Не найден ($-1$)    & Не найден ($-1$) \\ \hline
-% 		Поиск отсутствующего элемента внутри диапазона
-% 		               & $x=6$            & Не найден ($-1$)    & Не найден ($-1$) \\ \hline
-% 		Поиск в массиве из одного элемента, элемент присутствует
-% 		               & $A=\{16\}, x=16$ & Индекс 0            & Индекс 0         \\ \hline
-% 		Поиск в массиве из одного элемента, элемент отсутствует
-% 		               & $A=\{16\}, x=0$  & Не найден ($-1$)    & Не найден ($-1$) \\ \hline
-% 	\end{tabularx}
-% \end{table}
-
-% Все тесты были пройдены.
+Все модульные тесты были пройдены. При запуске команды \texttt{make test}
+выводится сообщение «Все модульные тесты пройдены.».
 
 \chapter{Исследовательская часть}
 
