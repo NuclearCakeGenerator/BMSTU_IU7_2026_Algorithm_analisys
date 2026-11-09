@@ -12,10 +12,10 @@ namespace {
 #define BENCHMARK_DIR "./data/"
 
 const AlgorithmInfo algorithms[algorithm_count] = {
-    {"стандартный", multiply_standard, BENCHMARK_DIR "standard.csv"},
-    {"Виноград", multiply_winograd, BENCHMARK_DIR "winograd.csv"},
+    {"стандартный", multiply_standard, "standard.csv"},
+    {"Виноград", multiply_winograd, "winograd.csv"},
     {"оптимизированный Виноград", multiply_winograd_optimized,
-     BENCHMARK_DIR "winograd_optimized.csv"}};
+     "winograd_optimized.csv"}};
 
 } // namespace
 
@@ -62,7 +62,8 @@ bool run_benchmark(std::size_t first, std::size_t last, std::size_t step,
   std::ofstream outputs[algorithm_count];
   for (std::size_t i = 0; i < algorithm_count; ++i) {
     const std::filesystem::path output_path =
-        std::filesystem::path(prefix + algorithm_info(i).csv_name);
+        std::filesystem::path(BENCHMARK_DIR) /
+        (prefix + algorithm_info(i).csv_name);
     const std::filesystem::path output_directory = output_path.parent_path();
     std::error_code directory_error;
     if (!output_directory.empty() &&

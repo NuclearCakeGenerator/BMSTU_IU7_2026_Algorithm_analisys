@@ -151,7 +151,12 @@ int main() {
             !read_positive_integer("Число повторений: ", repetitions)) {
           break;
         }
-        run_benchmark(first, last, step, repetitions, "");
+        if (last == std::numeric_limits<std::size_t>::max()) {
+          std::cout << "Ошибка: конечный размер слишком велик.\n";
+          break;
+        }
+        run_benchmark(first, last, step, repetitions, "even_");
+        run_benchmark(first + 1, last + 1, step, repetitions, "odd_");
         break;
       }
       case 0:

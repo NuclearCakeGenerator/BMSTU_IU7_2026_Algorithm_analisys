@@ -1,6 +1,7 @@
 #include "benchmark_support.hpp"
 
 #include <iostream>
+#include <limits>
 #include <stdexcept>
 #include <string>
 
@@ -21,7 +22,11 @@ int main(int argc, char **argv) {
     const std::size_t last = argument(argc, argv, 2, 100);
     const std::size_t step = argument(argc, argv, 3, 10);
     const std::size_t repetitions = argument(argc, argv, 4, 10);
-    if (!run_benchmark(first, last, step, repetitions, "")) {
+    if (last == std::numeric_limits<std::size_t>::max()) {
+      throw std::invalid_argument("конечный размер слишком велик");
+    }
+    if (!run_benchmark(first, last, step, repetitions, "even_") ||
+        !run_benchmark(first + 1, last + 1, step, repetitions, "odd_")) {
       return 1;
     }
   } catch (const std::exception &error) {
