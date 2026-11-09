@@ -15,7 +15,8 @@
         "xaver.clang-format",
         "ms-vscode.cpptools-themes",
         "esbenp.prettier-vscode",
-        "ReprEng.csv"
+        "ReprEng.csv",
+        "Anthropic.claude-code"
       ]
     }
   },
