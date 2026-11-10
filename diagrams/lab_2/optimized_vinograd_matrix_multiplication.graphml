@@ -20,7 +20,7 @@
           <y:Geometry height="53.0" width="200.0" x="500.0" y="0.0"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="35.400000000000006" x="82.3" xml:space="preserve" y="17.761962890625">Начало</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="42.4462890625" x="78.77685546875" xml:space="preserve" y="17.761962890625">Начало</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -30,9 +30,9 @@
           <y:Geometry height="53.0" width="200.0" x="500.0" y="83.0"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="44.42822265625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="129.8" x="35.099999999999994" xml:space="preserve" y="4.285888671875">n := число строк a,
-m := число столбцов a,
-q := число столбцов b</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="44.42822265625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="118.533203125" x="40.7333984375" xml:space="preserve" y="4.285888671875">n = число строк a,
+m = число столбцов a,
+q = число столбцов b</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -42,7 +42,7 @@ q := число столбцов b</y:NodeLabel>
           <y:Geometry height="53.0" width="200.0" x="500.0" y="166.0"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="30.9521484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="118.0" x="41.0" xml:space="preserve" y="11.02392578125">c := нулевая матрица
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="30.9521484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="110.51953125" x="44.740234375" xml:space="preserve" y="11.02392578125">c = нулевая матрица
 размера n × q</y:NodeLabel>
         </y:GenericNode>
       </data>
@@ -53,8 +53,8 @@ q := число столбцов b</y:NodeLabel>
           <y:Geometry height="53.0" width="200.0" x="500.0" y="249.0"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="30.9521484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="147.5" x="26.25" xml:space="preserve" y="11.02392578125">mulR := массив из n нулей
-mulC := массив из q нулей</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="30.9521484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="135.6025390625" x="32.19873046875" xml:space="preserve" y="11.02392578125">mulR = массив из n нулей
+mulC = массив из q нулей</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -64,8 +64,8 @@ mulC := массив из q нулей</y:NodeLabel>
           <y:Geometry height="53.0" width="200.0" x="500.0" y="332.0"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="30.9521484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="135.70000000000002" x="32.14999999999999" xml:space="preserve" y="11.02392578125">limit := 2 · (m div 2)
-is_odd := (m mod 2 = 1)</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="30.9521484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="117.72216796875" x="41.138916015625" xml:space="preserve" y="11.02392578125">limit = 2 · (m div 2)
+is_odd = (m mod 2 = 1)</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -75,7 +75,7 @@ is_odd := (m mod 2 = 1)</y:NodeLabel>
           <y:Geometry height="53.0" width="200.0" x="500.0" y="415.0"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="30.9521484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="88.5" x="55.75" xml:space="preserve" y="11.02392578125">Цикл 1
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="30.9521484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="74.34521484375" x="62.827392578125" xml:space="preserve" y="11.02392578125">Цикл 1
 i от 0 до n − 1</y:NodeLabel>
         </y:GenericNode>
       </data>
@@ -86,7 +86,7 @@ i от 0 до n − 1</y:NodeLabel>
           <y:Geometry height="53.0" width="200.0" x="500.0" y="498.0"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="30.9521484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="171.10000000000002" x="14.449999999999989" xml:space="preserve" y="11.02392578125">Цикл 2
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="30.9521484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="144.25537109375" x="27.872314453125" xml:space="preserve" y="11.02392578125">Цикл 2
 k от 0 до limit − 1 с шагом 2</y:NodeLabel>
         </y:GenericNode>
       </data>
@@ -97,7 +97,7 @@ k от 0 до limit − 1 с шагом 2</y:NodeLabel>
           <y:Geometry height="53.0" width="200.0" x="500.0" y="581.0"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="30.9521484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="118.0" x="41.0" xml:space="preserve" y="11.02392578125">mulR[i] := mulR[i] +
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="30.9521484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="94.46533203125" x="52.767333984375" xml:space="preserve" y="11.02392578125">mulR[i] = mulR[i] +
 a[i, k] · a[i, k+1]</y:NodeLabel>
         </y:GenericNode>
       </data>
@@ -108,7 +108,7 @@ a[i, k] · a[i, k+1]</y:NodeLabel>
           <y:Geometry height="53.0" width="200.0" x="500.0" y="664.0"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="76.7" x="61.65" xml:space="preserve" y="17.761962890625">Конец цикла 2</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="77.04150390625" x="61.479248046875" xml:space="preserve" y="17.761962890625">Конец цикла 2</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -118,7 +118,7 @@ a[i, k] · a[i, k+1]</y:NodeLabel>
           <y:Geometry height="53.0" width="200.0" x="500.0" y="747.0"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="76.7" x="61.65" xml:space="preserve" y="17.761962890625">Конец цикла 1</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="77.04150390625" x="61.479248046875" xml:space="preserve" y="17.761962890625">Конец цикла 1</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -128,7 +128,7 @@ a[i, k] · a[i, k+1]</y:NodeLabel>
           <y:Geometry height="53.0" width="200.0" x="500.0" y="830.0"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="30.9521484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="88.5" x="55.75" xml:space="preserve" y="11.02392578125">Цикл 3
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="30.9521484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="74.34521484375" x="62.827392578125" xml:space="preserve" y="11.02392578125">Цикл 3
 j от 0 до q − 1</y:NodeLabel>
         </y:GenericNode>
       </data>
@@ -139,7 +139,7 @@ j от 0 до q − 1</y:NodeLabel>
           <y:Geometry height="53.0" width="200.0" x="500.0" y="913.0"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="30.9521484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="171.10000000000002" x="14.449999999999989" xml:space="preserve" y="11.02392578125">Цикл 4
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="30.9521484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="144.25537109375" x="27.872314453125" xml:space="preserve" y="11.02392578125">Цикл 4
 k от 0 до limit − 1 с шагом 2</y:NodeLabel>
         </y:GenericNode>
       </data>
@@ -150,7 +150,7 @@ k от 0 до limit − 1 с шагом 2</y:NodeLabel>
           <y:Geometry height="53.0" width="200.0" x="500.0" y="996.0"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="30.9521484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="118.0" x="41.0" xml:space="preserve" y="11.02392578125">mulC[j] := mulC[j] +
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="30.9521484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="94.46533203125" x="52.767333984375" xml:space="preserve" y="11.02392578125">mulC[j] = mulC[j] +
 b[k, j] · b[k+1, j]</y:NodeLabel>
         </y:GenericNode>
       </data>
@@ -161,7 +161,7 @@ b[k, j] · b[k+1, j]</y:NodeLabel>
           <y:Geometry height="53.0" width="200.0" x="500.0" y="1079.0"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="76.7" x="61.65" xml:space="preserve" y="17.761962890625">Конец цикла 4</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="77.04150390625" x="61.479248046875" xml:space="preserve" y="17.761962890625">Конец цикла 4</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -171,7 +171,7 @@ b[k, j] · b[k+1, j]</y:NodeLabel>
           <y:Geometry height="53.0" width="200.0" x="500.0" y="1162.0"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="76.7" x="61.65" xml:space="preserve" y="17.761962890625">Конец цикла 3</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="77.04150390625" x="61.479248046875" xml:space="preserve" y="17.761962890625">Конец цикла 3</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -181,7 +181,7 @@ b[k, j] · b[k+1, j]</y:NodeLabel>
           <y:Geometry height="40.0" width="80.0" x="560.0" y="1245.0"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="5.9" x="37.05" xml:space="preserve" y="11.261962890625">А</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="11.3369140625" x="34.33154296875" xml:space="preserve" y="11.261962890625">А</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -191,7 +191,7 @@ b[k, j] · b[k+1, j]</y:NodeLabel>
           <y:Geometry height="40.0" width="80.0" x="873.7751085776329" y="6.5"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="5.9" x="37.05" xml:space="preserve" y="11.261962890625">А</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="11.3369140625" x="34.33154296875" xml:space="preserve" y="11.261962890625">А</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -201,7 +201,7 @@ b[k, j] · b[k+1, j]</y:NodeLabel>
           <y:Geometry height="53.0" width="200.0" x="813.7751085776329" y="83.0"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="30.9521484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="88.5" x="55.75" xml:space="preserve" y="11.02392578125">Цикл 5
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="30.9521484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="74.34521484375" x="62.827392578125" xml:space="preserve" y="11.02392578125">Цикл 5
 i от 0 до n − 1</y:NodeLabel>
         </y:GenericNode>
       </data>
@@ -212,7 +212,7 @@ i от 0 до n − 1</y:NodeLabel>
           <y:Geometry height="53.0" width="200.0" x="813.7751085776329" y="166.0"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="30.9521484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="88.5" x="55.75" xml:space="preserve" y="11.02392578125">Цикл 6
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="30.9521484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="74.34521484375" x="62.827392578125" xml:space="preserve" y="11.02392578125">Цикл 6
 j от 0 до q − 1</y:NodeLabel>
         </y:GenericNode>
       </data>
@@ -223,7 +223,7 @@ j от 0 до q − 1</y:NodeLabel>
           <y:Geometry height="53.0" width="200.0" x="813.7751085776329" y="249.0"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="171.10000000000002" x="14.449999999999989" xml:space="preserve" y="17.761962890625">c[i, j] := −mulR[i] − mulC[j]</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="128.7490234375" x="35.62548828125" xml:space="preserve" y="17.761962890625">c[i, j] = −mulR[i] − mulC[j]</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -233,7 +233,7 @@ j от 0 до q − 1</y:NodeLabel>
           <y:Geometry height="53.0" width="200.0" x="813.7751085776329" y="332.0"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="30.9521484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="171.10000000000002" x="14.449999999999989" xml:space="preserve" y="11.02392578125">Цикл 7
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="30.9521484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="144.25537109375" x="27.872314453125" xml:space="preserve" y="11.02392578125">Цикл 7
 k от 0 до limit − 1 с шагом 2</y:NodeLabel>
         </y:GenericNode>
       </data>
@@ -244,7 +244,7 @@ k от 0 до limit − 1 с шагом 2</y:NodeLabel>
           <y:Geometry height="53.0" width="200.0" x="813.7751085776329" y="415.0"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="44.42822265625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="135.70000000000002" x="32.14999999999999" xml:space="preserve" y="4.285888671875">c[i, j] := c[i, j] +
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="44.42822265625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="95.6953125" x="52.15234375" xml:space="preserve" y="4.285888671875">c[i, j] = c[i, j] +
 (a[i, k] + b[k+1, j]) ·
 (a[i, k+1] + b[k, j])</y:NodeLabel>
         </y:GenericNode>
@@ -256,7 +256,7 @@ k от 0 до limit − 1 с шагом 2</y:NodeLabel>
           <y:Geometry height="53.0" width="200.0" x="813.7751085776329" y="498.0"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="76.7" x="61.65" xml:space="preserve" y="17.761962890625">Конец цикла 7</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="77.04150390625" x="61.479248046875" xml:space="preserve" y="17.761962890625">Конец цикла 7</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -266,7 +266,7 @@ k от 0 до limit − 1 с шагом 2</y:NodeLabel>
           <y:Geometry height="53.0" width="200.0" x="813.7751085776329" y="581.0"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="41.300000000000004" x="79.35" xml:space="preserve" y="17.761962890625">is_odd?</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="42.5322265625" x="78.73388671875" xml:space="preserve" y="17.761962890625">is_odd?</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -276,7 +276,7 @@ k от 0 до limit − 1 с шагом 2</y:NodeLabel>
           <y:Geometry height="53.0" width="200.0" x="943.7751085776329" y="664.0"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="30.9521484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="147.5" x="26.25" xml:space="preserve" y="11.02392578125">c[i, j] := c[i, j] +
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="30.9521484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="113.1728515625" x="43.41357421875" xml:space="preserve" y="11.02392578125">c[i, j] = c[i, j] +
 a[i, m − 1] · b[m − 1, j]</y:NodeLabel>
         </y:GenericNode>
       </data>
@@ -287,7 +287,7 @@ a[i, m − 1] · b[m − 1, j]</y:NodeLabel>
           <y:Geometry height="53.0" width="200.0" x="813.7751085776329" y="810.6872964169381"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="76.7" x="61.65" xml:space="preserve" y="17.761962890625">Конец цикла 6</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="77.04150390625" x="61.479248046875" xml:space="preserve" y="17.761962890625">Конец цикла 6</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -297,7 +297,7 @@ a[i, m − 1] · b[m − 1, j]</y:NodeLabel>
           <y:Geometry height="53.0" width="200.0" x="813.7751085776329" y="893.6872964169381"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="76.7" x="61.65" xml:space="preserve" y="17.761962890625">Конец цикла 5</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="77.04150390625" x="61.479248046875" xml:space="preserve" y="17.761962890625">Конец цикла 5</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -307,7 +307,7 @@ a[i, m − 1] · b[m − 1, j]</y:NodeLabel>
           <y:Geometry height="53.0" width="200.0" x="813.7751085776329" y="976.6872964169381"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="53.1" x="73.45" xml:space="preserve" y="17.761962890625">вернуть c</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="52.97900390625" x="73.510498046875" xml:space="preserve" y="17.761962890625">вернуть c</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -317,7 +317,7 @@ a[i, m − 1] · b[m − 1, j]</y:NodeLabel>
           <y:Geometry height="53.0" width="200.0" x="813.7751085776329" y="1059.6872964169381"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="29.5" x="85.25" xml:space="preserve" y="17.761962890625">Конец</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="35.01806640625" x="82.490966796875" xml:space="preserve" y="17.761962890625">Конец</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
