@@ -16,7 +16,7 @@ test: $(BUILD_DIR)/matrix_tests
 	./$(BUILD_DIR)/matrix_tests
 
 benchmark: $(BUILD_DIR)/matrix_benchmark
-	./$(BUILD_DIR)/matrix_benchmark 10 100 10 10
+	./$(BUILD_DIR)/matrix_benchmark 10 100 2 100
 	$(PYTHON) plot_results.py
 
 $(BUILD_DIR):
